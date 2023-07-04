@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from src.abstract_classes import GetAPI
 import requests
 
@@ -40,6 +38,3 @@ class SuperJobAPI(GetAPI):
             vacancies.append({'area': area, 'name': name, 'description': description, 'employer': employer, 'url': url,
                               'salary_from': salary_from, 'salary_to': salary_to, 'currency': currency})
         return vacancies
-
-
-

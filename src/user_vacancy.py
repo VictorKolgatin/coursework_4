@@ -27,5 +27,6 @@ def user_vacancy():
     # JSONSaver.find_vacancy('cod')
     # JSONSaver.find_vacancy('Parsing')
 
+
 if __name__ == "__main__":
     user_vacancy()

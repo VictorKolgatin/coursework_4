@@ -1,4 +1,3 @@
-
 from src.abstract_classes import GetAPI
 import requests
 
@@ -17,7 +16,6 @@ class HeadHunterAPI(GetAPI):
         }
         hh_vacancy = requests.get(url, params=params)
         return hh_vacancy.json()['items']
-
 
     def get_vacancies(self, vacancy):
 

@@ -1,5 +1,4 @@
 from pprint import pprint
-
 from src.JSONSaver import JSONSaver
 from src.hh_class import HeadHunterAPI
 from src.sj_class import SuperJobAPI

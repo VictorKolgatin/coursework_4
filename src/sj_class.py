@@ -30,14 +30,14 @@ class SuperJobAPI(GetAPI):
         for vacancy in data:
             area = vacancy['address']
             name = vacancy['profession']
-            description = vacancy['candidat']
+            discription = vacancy['candidat']
             employer = vacancy['firm_name']
             url = vacancy['link']
             salary_from = vacancy['payment_from']
             salary_to = vacancy['payment_to']
             currency = vacancy['currency']
 
-            vacancies.append({'area': area, 'name': name, 'description': description, 'employer': employer, 'url': url,
+            vacancies.append({'area': area, 'name': name, 'discription': discription, 'employer': employer, 'url': url,
                               'salary_from': salary_from, 'salary_to': salary_to, 'currency': currency})
         return vacancies
 

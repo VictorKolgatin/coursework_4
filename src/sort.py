@@ -1,3 +1,4 @@
+import src.vacancy
 from src.JSONSaver import JSONSaver
 from src.hh_class import HeadHunterAPI
 
@@ -19,6 +20,7 @@ def sort():
     # Сохранение информации о вакансиях в файл
     json_saver = JSONSaver(f'{keyword}', hh_vacancies)
 
+    # Вывод отсортированных вакансий по возрастанию по зарплате "от"
     vacancies = json_saver.get_vacancies_by_salary()
     for vacancy in vacancies:
         print(vacancy)

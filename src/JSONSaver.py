@@ -78,7 +78,7 @@ class JSONSaver:
         """
         with open(f'{keyword}.json', encoding='utf-8') as file:
             data = json.load(file)
-            find_vacancy =[]
+            find_vacancy = []
             for i in data:
                 if discrip in i['discription']:
                     find_vacancy.append(i)

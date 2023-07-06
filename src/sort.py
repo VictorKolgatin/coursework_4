@@ -2,7 +2,6 @@ import src.vacancy
 from src.JSONSaver import JSONSaver
 from src.hh_class import HeadHunterAPI
 
-
 def sort():
     """
     Функция для сортировки вакансий по возрастанию зарплаты

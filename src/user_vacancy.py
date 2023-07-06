@@ -24,5 +24,6 @@ def user_vacancy():
     # JSONSaver.del_vacancy('Python')
 
 
+
 if __name__ == "__main__":
     user_vacancy()

@@ -1,5 +1,6 @@
 import json
 import os
+from operator import itemgetter
 
 from src.vacancy import Vacancy
 
@@ -129,4 +130,38 @@ class JSONSaver:
         if len(city_vacancy) != 0:
             return city_vacancy
         return None
+
+    @classmethod
+    def top(cls, keyword, salary, top=None):
+        """
+        Класс метод для вывода топ N вакансий.
+        """
+        with open(f'{keyword}.json', encoding='utf-8') as file:
+            data = json.load(file)
+
+        find_vacancy = []
+        for i in data:
+            if salary <= i['salary_from']:
+                find_vacancy.append(i)
+
+        sorted_list = sorted(find_vacancy, key=itemgetter('salary_from'), reverse=True)
+        top_list = sorted_list[:top]
+
+        top_vacancy = []
+        for vacancy in top_list:
+            area = vacancy['area']
+            name = vacancy['name']
+            discription = vacancy['discription']
+            employer = vacancy['employer']
+            url = vacancy['url']
+            salary_from = vacancy['salary_from']
+            salary_to = vacancy['salary_to']
+            currency = vacancy['currency']
+
+            top_vacancy.append(Vacancy(area, name, discription, employer, url, salary_from, salary_to, currency))
+
+        if len(top_vacancy) != 0:
+            return top_vacancy
+        return None
+
 

@@ -15,3 +15,6 @@
 Файл JSONSaver.py позволяет работать с json файлами.
 Файлы hh_class.py, sj_class.py выполняют запрос по API на указанный сервис и получают список вакансий. 
 
+update
+в Файл JSONSaver.py дописаны методы для расширения функционала (сортировки, фильтрации и т.д.)
+Реализация методов в файлах keyword_search, sort, sort_city, top_vacancy, user_vacancy.

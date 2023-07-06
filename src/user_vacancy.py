@@ -23,9 +23,6 @@ def user_vacancy():
     # # Удаление вакансии из списка, по названию вакансии.
     # JSONSaver.del_vacancy('Python')
 
-    # # Поиск вакансий в списке по ключевому слову в описании к вакансии.
-    # JSONSaver.find_vacancy('cod')
-    # JSONSaver.find_vacancy('Parsing')
 
 if __name__ == "__main__":
     user_vacancy()

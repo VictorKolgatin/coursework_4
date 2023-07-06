@@ -72,18 +72,61 @@ class JSONSaver:
             json.dump(data, file, ensure_ascii=False, indent=5)
 
     @classmethod
-    def find_vacancy(cls, keyword):
+    def find_vacancy(cls, keyword, discrip):
         """
         Класс метод для поиска вакансий пользователем на основе ключевого слова в описании.
         """
-        with open('user_vacancy.json', encoding='utf-8') as file:
+        with open(f'{keyword}.json', encoding='utf-8') as file:
             data = json.load(file)
             find_vacancy =[]
             for i in data:
-                if keyword in i['discription']:
+                if discrip in i['discription']:
                     find_vacancy.append(i)
 
-            if len(find_vacancy) > 0:
-                print(find_vacancy)
-            else:
-                print("Вакансии не найдены")
+            keyword_vacancy = []
+            for vacancy in find_vacancy:
+                area = vacancy['area']
+                name = vacancy['name']
+                discription = vacancy['discription']
+                employer = vacancy['employer']
+                url = vacancy['url']
+                salary_from = vacancy['salary_from']
+                salary_to = vacancy['salary_to']
+                currency = vacancy['currency']
+
+                keyword_vacancy.append(Vacancy(area, name, discription, employer, url, salary_from, salary_to, currency))
+
+            if len(keyword_vacancy) != 0:
+                return keyword_vacancy
+            return None
+
+    @classmethod
+    def city_sort_vacancy(cls, keyword, city):
+        """
+        Класс метод для поиска вакансий пользователем по городу.
+        """
+        with open(f'{keyword}.json', encoding='utf-8') as file:
+            data = json.load(file)
+
+        find_vacancy = []
+        for i in data:
+            if i['area'] == city:
+                find_vacancy.append(i)
+
+        city_vacancy = []
+        for vacancy in find_vacancy:
+            area = vacancy['area']
+            name = vacancy['name']
+            discription = vacancy['discription']
+            employer = vacancy['employer']
+            url = vacancy['url']
+            salary_from = vacancy['salary_from']
+            salary_to = vacancy['salary_to']
+            currency = vacancy['currency']
+
+            city_vacancy.append(Vacancy(area, name, discription, employer, url, salary_from, salary_to, currency))
+
+        if len(city_vacancy) != 0:
+            return city_vacancy
+        return None
+
